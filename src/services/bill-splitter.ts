@@ -26,9 +26,12 @@ export const splitBill = (
     })
   }
 
-  if (result.length !== 0) {
-    result[result.length - 1].amountToPay += rest
-  }
+  result.forEach((x, idx) => {
+    if (idx !== numberOfPeoples - 1) {
+      return
+    }
+    x.amountToPay += rest
+  })
 
   return result
 }
